@@ -14,7 +14,7 @@ Installation Setup:
 
 :after installing the frontend
 
-6. navigate directory "fs_activity_backend" || run the command "cd fs_activity_backend" if you're current directory was "FSchatapp".
+6. navigate directory "fs_activity_backend" || run the command "cd fs_activity_backend" if your current directory was "FSchatapp".
 
 7. On the same directory "fs_activity_backend" run the command "npm install" to install all packages.
 
