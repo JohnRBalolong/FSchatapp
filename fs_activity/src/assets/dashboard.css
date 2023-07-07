@@ -1,0 +1,317 @@
+.wrapper {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+}
+
+.wrapper .sidebar {
+    background: rgb(0, 147, 132);
+    width: 325px;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+    overflow: hidden;
+    /* Hide any overflowing content */
+    display: grid;
+}
+
+.wrapper .sidebar .contact_list_out_div {
+    height: calc(100% - 16px);
+    /* Set a fixed height for the contact list container */
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+}
+
+.wrapper .sidebar .profile {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.wrapper .sidebar .profile img {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.wrapper .sidebar .profile h3 {
+    color: #ffffff;
+    margin: 5px 0 2px;
+}
+
+.wrapper .sidebar .profile p {
+    color: rgb(206, 240, 253);
+    font-size: 17px;
+    margin: 3px;
+}
+
+.search-input {
+    position: relative;
+}
+
+.search-input input {
+    padding-right: 70px;
+    height: 35px;
+    border-radius: 10px;
+}
+
+.search-input .pi-search {
+    position: absolute;
+    top: 50%;
+    margin-left: -30px;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.search-input .pi-search:hover {
+    color: rgb(5, 37, 222);
+}
+
+.wrapper .sidebar .contact_list {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.wrapper .sidebar .contact_list img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.wrapper .sidebar .contact_list .contact_profile {
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .sidebar .contact_list .contact_details {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper .sidebar .contact_list .name {
+    font-weight: bold;
+    margin-top: 5px;
+    color: #eae7e7;
+}
+
+.wrapper .sidebar .contact_list .message {
+    color: #180121;
+}
+
+.wrapper .sidebar .contact_list.active {
+    background-color: #1dc9af;
+    border-radius: 10px;
+}
+
+.content {
+    flex: 1;
+    background-color: #979797;
+}
+
+.content .header {
+    background-color: rgb(0, 147, 132);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.content .header .profile {
+    display: flex;
+    align-items: center;
+}
+
+.content .header .profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.active_status {
+    font-size: 13px;
+    color: #d4ff57;
+}
+
+.content .header .contact_details {
+    color: #ffffff;
+}
+
+.content .chat-history {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    height: 81vh;
+}
+
+.content .chat-history .message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.content .chat-history .message .profile {
+    margin-right: 10px;
+}
+
+.content .chat-history .message .profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.content .chat-history .message .message-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content .chat-history .message .name {
+    font-weight: bold;
+}
+
+.content .chat-history .message.sent .message-content {
+    align-items: flex-end;
+}
+
+.content .chat-history .message.sent .message-content .text {
+    background-color: rgb(5, 37, 222);
+    color: white;
+    border-radius: 5px;
+    padding: 8px;
+    margin-left: auto;
+}
+
+.content .chat-history .message.sent .message-content .text::after {
+    display: none;
+    /* Hide the arrow for sent messages */
+}
+
+.message.sent {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.message.sent .message-content {
+    align-items: flex-end;
+}
+
+.message.sent .message-content .text {
+    background-color: rgb(5, 37, 222);
+}
+
+.message.sent .profile {
+    display: none;
+}
+
+.message:not(.sent) {
+    display: flex;
+    flex-direction: row;
+}
+
+.message:not(.sent) .message-content {
+    align-items: flex-start;
+}
+
+.message:not(.sent) .message-content .text {
+    background-color: #80808070;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.content .chat-input {
+    display: flex;
+    align-items: center;
+    margin: 0px 10px;
+}
+
+.content .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: none;
+}
+
+.content .chat-input button {
+    background-color: rgb(0, 147, 132);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.content .chat-input button:hover {
+    background-color: rgb(5, 37, 222);
+}
+
+.no-user-selected.chat-history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #80808070;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+
+/* New style for chat history */
+
+.message-content.senderout_div {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 3px;
+}
+
+.text.sender {
+    background-color: rgb(5, 37, 222);
+    color: white;
+    font-size: 15px;
+    padding: 8px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 5px;
+    font-weight: 600;
+}
+
+.message-content.recieverout_div {
+    display: flex;
+    padding: 3px;
+}
+
+.text.reciever {
+    background-color: rgb(75 74 74 / 38%);
+    color: black;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 8px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 15px;
+}
+
+span.pi.pi-sign-out {
+    position: absolute;
+    font-size: 15px;
+    font-weight: 900;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 10px;
+}
+
+span.pi.pi-sign-out:hover {
+    color: #c31342;
+}
