@@ -105,7 +105,7 @@
       const authStore = useAuthStore();
 
     //   Registration function
-      const submit = async () => {
+    const submit = async () => {
   if (
     !username.value ||
     !email.value ||
@@ -113,12 +113,7 @@
     !conpass.value ||
     conpass.value !== password.value
   ) {
-    toast.add({
-      severity: 'error',
-      summary: 'Registration Error',
-      detail: 'Please double-check your credentials',
-      life: 3000,
-    });
+    // Handle client-side validation errors if necessary
     return;
   }
 
@@ -145,35 +140,36 @@
     const formContainer = document.querySelector(".form_container");
     formContainer.classList.remove("active");
   } catch (error) {
-    if (error.response && error.response.data && error.response.data.error) {
-      // Display the server-side error message
+    if (error.response && error.response.data && error.response.data.errors) {
+      // Display server-side validation errors
+      const errorMessages = error.response.data.errors.map(error => error.msg);
+      toast.add({
+        severity: 'error',
+        summary: 'Registration Error',
+        detail: errorMessages.join(', '),
+        life: 5000,
+      });
+    } else if (error.response && error.response.data && error.response.data.error) {
+      // Display other server-side errors
       const errorMessage = error.response.data.error;
-      if (errorMessage === 'Username or email already registered') {
-        toast.add({
-          severity: 'error',
-          summary: 'Registration Error:',
-          detail: 'Username or email already registered',
-          life: 5000,
-        });
-      } else {
-        toast.add({
-          severity: 'error',
-          summary: 'Registration Error:',
-          detail: errorMessage,
-          life: 5000,
-        });
-      }
+      toast.add({
+        severity: 'error',
+        summary: 'Registration Error',
+        detail: errorMessage,
+        life: 5000,
+      });
     } else {
       // Handle other errors
       toast.add({
         severity: 'error',
-        summary: 'Registration Error:',
+        summary: 'Registration Error',
         detail: error.message,
         life: 5000,
       });
     }
   }
 };
+
 
 
 
